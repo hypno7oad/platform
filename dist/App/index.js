@@ -48,9 +48,7 @@ function App(_ref) {
   }, React.createElement(VerticalLayout, null, React.createElement(Panel, null, React.createElement("h3", null, React.createElement("select", {
     autoFocus: true,
     onChange: handleChange
-  }, React.createElement("option", {
-    "default": true
-  }, selectUserPlaceholder), Users.map(App.mapUserToOption)))), React.createElement(Panel, null, React.createElement(SelectedUserText, null)))))), React.createElement(Panel, {
+  }, App.mapUsersToOptions(Users, selectedUser)))), React.createElement(Panel, null, React.createElement(SelectedUserText, null)))))), React.createElement(Panel, {
     centered: true
   }, ContentComponent ? React.createElement(ContentComponent, Object.assign({
     user: selectedUser
@@ -59,13 +57,14 @@ function App(_ref) {
   }, clientCustomizations)))));
 }
 
-App.mapUserToOption = function (_ref2) {
-  var username = _ref2.username,
-      displayName = _ref2.displayName;
-  return React.createElement("option", {
-    value: username,
-    key: username
-  }, displayName);
+App.mapUsersToOptions = function (Users, selectedUser) {
+  return Users.map(function (user) {
+    return React.createElement("option", {
+      value: user.username,
+      key: user.username,
+      selected: selectedUser === user
+    }, user.displayName);
+  });
 };
 
 App.defaultProps = {

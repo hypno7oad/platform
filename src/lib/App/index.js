@@ -44,8 +44,7 @@ function App({
                 <Panel>
                   <h3>
                     <select autoFocus onChange={handleChange}>
-                      <option default>{selectUserPlaceholder}</option>
-                      {Users.map(App.mapUserToOption)}
+                      {App.mapUsersToOptions(Users, selectedUser)}
                     </select>
                   </h3>
                 </Panel>
@@ -66,10 +65,11 @@ function App({
     </View>
   )
 }
-App.mapUserToOption = ({username, displayName}) => (<option
-  value={username}
-  key={username}
->{displayName}</option>)
+App.mapUsersToOptions = (Users, selectedUser) => Users.map((user) => (<option
+  value={user.username}
+  key={user.username}
+  selected={selectedUser === user}
+>{user.displayName}</option>))
 
 App.defaultProps = {
   HeaderText: () => (<h1>Lazy loading of Custom UI Components PoC</h1>),
