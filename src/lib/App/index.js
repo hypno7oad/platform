@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import {UI} from '../../lib'
-import {Users} from '../../mocks'
+import UI from '@hypno7oad/ui'
+import {Users} from '../mocks'
 import {
   HorizontalLayout,
   VerticalLayout,
