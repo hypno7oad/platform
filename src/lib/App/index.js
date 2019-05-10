@@ -16,31 +16,18 @@ function App({
   headerHeight,
   headerUserBoxWidth,
   useSelectedUserState,
-  useContentComponentState,
-  useClientCustomizationSate
+  ContentComponent,
+  clientCustomizations,
+  debug
 }) {
 
   const [selectedUser, setSelectedUser] = useSelectedUserState()
-  const [ContentComponent, setContentComponent] = useContentComponentState()
-  const [clientCustomizations, setClientCustomizations] = useClientCustomizationSate()
-
+  
   if (selectedUser !== null) {
     SelectedUserText = () => (<h5>{selectedUser.client}: {selectedUser.username}</h5>)
   }
   const handleChange = event => {
-    const selectedUser = Users.find(user => user.username === event.target.value)
-    setSelectedUser(selectedUser || null)
-
-    if (selectedUser) {
-      import(`../${selectedUser.clientCustomizations}.js`)
-        .then(customizations => {
-          if (customizations.Content) setContentComponent(() => customizations.Content)
-          setClientCustomizations(customizations)
-        })
-    } else {
-      setContentComponent(null)
-      setClientCustomizations(null)
-    }
+    window.location = selectedUser.url
   }
 
   return (
@@ -89,9 +76,6 @@ App.defaultProps = {
   selectUserPlaceholder: 'Select a User:',
   headerHeight: 150,
   headerUserBoxWidth: 200,
-  useSelectedUserState: () => useState(null),
-  useContentComponentState: () => useState(null),
-  useClientCustomizationSate: () => useState(null)
-
+  useSelectedUserState: () => useState(null)
 }
 export default App

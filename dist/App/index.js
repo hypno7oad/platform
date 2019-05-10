@@ -12,23 +12,14 @@ function App(_ref) {
       headerHeight = _ref.headerHeight,
       headerUserBoxWidth = _ref.headerUserBoxWidth,
       useSelectedUserState = _ref.useSelectedUserState,
-      useContentComponentState = _ref.useContentComponentState,
-      useClientCustomizationSate = _ref.useClientCustomizationSate;
+      ContentComponent = _ref.ContentComponent,
+      clientCustomizations = _ref.clientCustomizations,
+      debug = _ref.debug;
 
   var _useSelectedUserState = useSelectedUserState(),
       _useSelectedUserState2 = _slicedToArray(_useSelectedUserState, 2),
       selectedUser = _useSelectedUserState2[0],
       setSelectedUser = _useSelectedUserState2[1];
-
-  var _useContentComponentS = useContentComponentState(),
-      _useContentComponentS2 = _slicedToArray(_useContentComponentS, 2),
-      ContentComponent = _useContentComponentS2[0],
-      setContentComponent = _useContentComponentS2[1];
-
-  var _useClientCustomizati = useClientCustomizationSate(),
-      _useClientCustomizati2 = _slicedToArray(_useClientCustomizati, 2),
-      clientCustomizations = _useClientCustomizati2[0],
-      setClientCustomizations = _useClientCustomizati2[1];
 
   if (selectedUser !== null) {
     SelectedUserText = function SelectedUserText() {
@@ -37,22 +28,7 @@ function App(_ref) {
   }
 
   var handleChange = function handleChange(event) {
-    var selectedUser = Users.find(function (user) {
-      return user.username === event.target.value;
-    });
-    setSelectedUser(selectedUser || null);
-
-    if (selectedUser) {
-      import("../".concat(selectedUser.clientCustomizations, ".js")).then(function (customizations) {
-        if (customizations.Content) setContentComponent(function () {
-          return customizations.Content;
-        });
-        setClientCustomizations(customizations);
-      });
-    } else {
-      setContentComponent(null);
-      setClientCustomizations(null);
-    }
+    window.location = selectedUser.url;
   };
 
   return React.createElement(View, null, React.createElement(VerticalLayout, {
@@ -101,12 +77,6 @@ App.defaultProps = {
   headerHeight: 150,
   headerUserBoxWidth: 200,
   useSelectedUserState: function useSelectedUserState() {
-    return useState(null);
-  },
-  useContentComponentState: function useContentComponentState() {
-    return useState(null);
-  },
-  useClientCustomizationSate: function useClientCustomizationSate() {
     return useState(null);
   }
 };
