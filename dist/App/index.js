@@ -1,12 +1,12 @@
 import _slicedToArray from "@babel/runtime/helpers/esm/slicedToArray";
 import React, { useState } from 'react';
 import { DefaultContent } from '@hypno7oad/ui';
-import { Users } from '../mocks';
 import { HorizontalLayout, VerticalLayout, Panel, View } from 'nice-react-layout';
 import './App.css';
 
 function App(_ref) {
-  var HeaderText = _ref.HeaderText,
+  var Users = _ref.Users,
+      HeaderText = _ref.HeaderText,
       SelectedUserText = _ref.SelectedUserText,
       selectUserPlaceholder = _ref.selectUserPlaceholder,
       headerHeight = _ref.headerHeight,

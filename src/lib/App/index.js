@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import {DefaultContent} from '@hypno7oad/ui'
-import {Users} from '../mocks'
 import {
   HorizontalLayout,
   VerticalLayout,
@@ -10,6 +9,7 @@ import {
 import './App.css'
 
 function App({
+  Users,
   HeaderText,
   SelectedUserText,
   selectUserPlaceholder,
