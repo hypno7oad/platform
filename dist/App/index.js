@@ -21,6 +21,8 @@ function App(_ref) {
       selectedUser = _useSelectedUserState2[0],
       setSelectedUser = _useSelectedUserState2[1];
 
+  if (debug) debugger;
+
   if (selectedUser !== null) {
     SelectedUserText = function SelectedUserText() {
       return React.createElement("h5", null, selectedUser.client, ": ", selectedUser.username);
