@@ -22,6 +22,7 @@ function App({
 }) {
 
   const [selectedUser, setSelectedUser] = useSelectedUserState()
+  if (debug) debugger
   
   if (selectedUser !== null) {
     SelectedUserText = () => (<h5>{selectedUser.client}: {selectedUser.username}</h5>)
