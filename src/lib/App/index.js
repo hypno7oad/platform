@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {UI} from '@hypno7oad/ui'
+import {DefaultContent} from '@hypno7oad/ui'
 import {Users} from '../mocks'
 import {
   HorizontalLayout,
