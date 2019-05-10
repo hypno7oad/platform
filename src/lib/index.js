@@ -1,5 +1,3 @@
-import App from './App'
-import DefaultContent from './DefaultContent'
+export {default} from './App'
 
-export const Platform = {App}
-export const UI = {DefaultContent}
+// export default {App}
