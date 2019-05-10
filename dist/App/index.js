@@ -1,6 +1,6 @@
 import _slicedToArray from "@babel/runtime/helpers/esm/slicedToArray";
 import React, { useState } from 'react';
-import UI from '@hypno7oad/ui';
+import { UI } from '@hypno7oad/ui';
 import { Users } from '../mocks';
 import { HorizontalLayout, VerticalLayout, Panel, View } from 'nice-react-layout';
 import './App.css';
@@ -76,7 +76,7 @@ function App(_ref) {
     centered: true
   }, ContentComponent ? React.createElement(ContentComponent, Object.assign({
     user: selectedUser
-  }, clientCustomizations)) : React.createElement(UI.DefaultContent, Object.assign({
+  }, clientCustomizations)) : React.createElement(DefaultContent, Object.assign({
     user: selectedUser
   }, clientCustomizations)))));
 }

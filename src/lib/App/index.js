@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import UI from '@hypno7oad/ui'
+import {UI} from '@hypno7oad/ui'
 import {Users} from '../mocks'
 import {
   HorizontalLayout,
@@ -71,7 +71,7 @@ function App({
         <Panel centered>
           {ContentComponent
             ? <ContentComponent user={selectedUser} {...clientCustomizations}></ContentComponent>
-            : <UI.DefaultContent user={selectedUser} {...clientCustomizations}></UI.DefaultContent>
+            : <DefaultContent user={selectedUser} {...clientCustomizations}></DefaultContent>
           }
         </Panel>
       </VerticalLayout>
